@@ -2,8 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(Ss());
 }
 
@@ -126,9 +132,9 @@ class Ss extends StatelessWidget {
                           width: 70,
                         ),
                       ),
-                        InkWell(
+                      InkWell(
                         onTap: () {
-                        launchPhoneDialer("+201211406202");
+                          launchPhoneDialer("+201211406202");
                         },
                         child: Image.asset(
                           'image/44.jpg',
@@ -136,7 +142,6 @@ class Ss extends StatelessWidget {
                           width: 50,
                         ),
                       ),
-                     
                     ])
               ], // close the Column children list here
             ),
